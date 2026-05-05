@@ -58,7 +58,7 @@ The end-to-end Zerocash protocol exposes six algorithms. Their measured costs on
 - *VerifyTransaction*: 8.3 µs for a mint, 5.7 ms for a pour.
 - *Receive*: 1.6 ms per pour transaction scanned.
 
-The asymmetry between Pour ($~$2 minutes) and VerifyTransaction (5.7 ms) is intentional: the cost is borne by the transacting party, not by the network. Because the proof size is constant and verification is fast, network nodes see Zerocash transactions as roughly equivalent in cost to plain Bitcoin transactions.
+The asymmetry between Pour ($~$2 minutes) and VerifyTransaction (5.7 ms) is intentional, since the cost is borne by the transacting party, not by the network. Because the proof size is constant and verification is fast, network nodes see Zerocash transactions as roughly equivalent in cost to plain Bitcoin transactions.
 
 == Large-Scale Network Simulation
 
