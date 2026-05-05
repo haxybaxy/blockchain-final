@@ -16,7 +16,7 @@
 #text(size: 24pt, weight: "bold")[Zerocash]
 #v(0.3cm)
 
-#text(size: 18pt, style: "italic")[Improving Decentralized Anonymous Payments from Bitcoin]
+#text(size: 18pt, style: "italic")[A Review of Decentralized Anonymous Payments from Bitcoin]
 #v(0.8cm)
 
 #text(size: 16pt, weight: "bold")[Group 4]
