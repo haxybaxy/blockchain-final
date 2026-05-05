@@ -49,7 +49,7 @@ Two structural results stand out. First, every Zerocash proof has a *constant si
 
 == DAP Scheme Performance
 
-The end-to-end Zerocash protocol exposes six algorithms. Their measured costs on the desktop machine are:
+The end-to-end Zerocash protocol exposes six algorithms. Their measured costs on the desktop machine (Intel Core i7-4770, 16 GB RAM, single thread) are:
 
 - *Setup*: ~5 minutes (one-time, dominated by key generation).
 - *CreateAddress*: 326 ms.
