@@ -1,3 +1,8 @@
 #pagebreak()
 = Experiments
-Your experiments go here
+
+The Zerocash paper evaluates the practicality of its DAP scheme through three sets of experiments: micro-benchmarks of the underlying zk-SNARK for the POUR statement (Section 7.1 of the paper), micro-benchmarks of the six DAP scheme algorithms (Section 7.2), and a 1,000-node network simulation testing the impact of Zerocash transactions on Bitcoin-style network propagation (Section 7.3). All measurements are taken at the 128-bit security level, with results averaged over ten runs and standard deviations under 2.5%.
+
+The micro-benchmarks were performed on two machines: an Intel Core i7-2620M laptop (2.70 GHz, 12 GB RAM) and an Intel Core i7-4770 desktop (3.40 GHz, 16 GB RAM), with both single-thread and multi-thread (four-thread) configurations on the desktop. The arithmetic circuit underlying the POUR statement was hand-optimised to exploit non-deterministic verification and the field characteristic, and all cryptographic primitives were instantiated using SHA-256 to keep the circuit small.
+
+The network simulation used 200 Amazon EC2 `m1.medium` instances running 1,000 Bitcoin nodes between them, in a single AWS region on a private network. Transactions were generated as a Poisson process at a target rate of one per second, and blocks at every 150 seconds (matching Litecoin's block interval rather than Bitcoin's, to keep simulations short). Each simulation run lasted one hour. The proportion $epsilon$ of Zerocash transactions in the traffic mix was varied across $\{0\%, 25\%, 50\%, 75\%, 100\%\}$. Three metrics were measured: transaction latency from creation to inclusion in a block, block propagation time across the network, and per-block verification time. The simulation design isolates the impact of zk-SNARK verification cost from the rest of Bitcoin's processing pipeline.

@@ -5,6 +5,8 @@
 
 #set text(font: "Times New Roman", size: 12pt)
 
+#set par(justify: true, leading: 1.0em, first-line-indent: 1.5em)
+
 #set heading(numbering: "1.a)")
 #show heading: it => {
   block(
@@ -13,15 +15,13 @@
   )
 }
 
-#set par(leading: 1.0em)
-
 #set page(
   header: context [
     #grid(
       columns: (1fr, auto),
       align: (left, right),
       gutter: 0pt,
-      [Fancy Head],
+      [Group 4 — Zerocash],
       [#counter(page).display("1")],
     )
   ],
@@ -31,7 +31,6 @@
 #set bibliography(style: "ieee") // numeric-ish
 
 #include "sections/title_page.typ"
-#include "sections/abstract.typ"
 #include "sections/introduction.typ"
 #include "sections/methodology.typ"
 #include "sections/experiments.typ"
