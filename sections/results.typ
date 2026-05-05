@@ -7,14 +7,42 @@ The zk-SNARK is the cryptographic engine of Zerocash. It is invoked once per spe
 
 #figure(
   table(
-    columns: (auto, auto, auto, auto),
-    align: (left, center, center, center),
-    [*Operation*], [*Laptop, 1 thread*], [*Desktop, 1 thread*], [*Desktop, 4 threads*],
-    [Key generation], [7 min 48 s], [5 min 11 s], [1 min 47 s],
-    [Proof generation], [2 min 55 s], [1 min 59 s], [46 s],
-    [Proof verification], [8.5 ms], [5.4 ms], [5.4 ms],
+    columns: 5,
+    align: (center + horizon, center + horizon, center + horizon, center + horizon, center + horizon),
+
+    // Header row 1: machine specs
+    table.cell(rowspan: 2)[],
+    table.cell(rowspan: 2)[],
+    [Intel \
+    Core i7-2620M \
+    \@ 2.70 GHz \
+    12 GB of RAM],
+    table.cell(colspan: 2)[Intel \
+    Core i7-4770 \
+    \@ 3.40 GHz \
+    16 GB of RAM],
+
+    // Header row 2: thread counts
+    [1 thread],
+    [1 thread],
+    [4 threads],
+
+    // KeyGen group
+    table.cell(rowspan: 3)[KeyGen],
+    [Time], [7 min 48 s], [5 min 11 s], [1 min 47 s],
+    [Proving key], table.cell(colspan: 3)[896 MiB],
+    [Verification key], table.cell(colspan: 3)[749 B],
+
+    // Prove group
+    table.cell(rowspan: 2)[Prove],
+    [Time], [2 min 55 s], [1 min 59 s], [46 s],
+    [Proof], table.cell(colspan: 3)[288 B],
+
+    // Verify group
+    [Verify],
+    [Time], [8.5 ms], table.cell(colspan: 2)[5.4 ms],
   ),
-  caption: [zk-SNARK performance for the POUR statement at 128-bit security ($N = 10$, $sigma <= 2.5\%$).],
+  caption: [Performance of our zk-SNARK for the NP statement POUR ($N = 10$, $sigma <= 2.5\%$).],
 )
 
 Two structural results stand out. First, every Zerocash proof has a *constant size of 288 bytes*, regardless of how many coins exist in the system or how complex the underlying statement is. Second, *verification time is essentially constant in milliseconds*, which is the property that determines whether the scheme is deployable, since every node verifies every transaction. Key generation is the most expensive operation but is performed exactly once at system setup, producing an 896 MiB proving key and a 749 B verification key.

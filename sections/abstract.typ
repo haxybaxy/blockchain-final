@@ -12,4 +12,4 @@ This report reviews "Zerocash: Decentralized Anonymous Payments from Bitcoin" by
     below: 1em,
   )
 }
-#set heading(numbering: "1.a)")
+#set heading(numbering: "1.1")

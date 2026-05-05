@@ -5,9 +5,9 @@
 
 #set text(font: "Times New Roman", size: 12pt)
 
-#set par(justify: true, leading: 1.0em, first-line-indent: 1.5em)
+#set par(justify: true, leading: 1.5em, spacing: 1.5em, first-line-indent: 1.5em)
 
-#set heading(numbering: "1.a)")
+#set heading(numbering: "1.1")
 #show heading: it => {
   block(
     it,
@@ -28,7 +28,7 @@
   footer: [],
 )
 
-#set bibliography(style: "ieee") // numeric-ish
+#set bibliography(style: "apa") // numeric-ish
 
 #include "sections/title_page.typ"
 #include "sections/introduction.typ"

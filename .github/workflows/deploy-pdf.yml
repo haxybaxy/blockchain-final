@@ -1,0 +1,31 @@
+name: Deploy Paper
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: haxybaxy/papersharer@main
+        with:
+          pdf-path: main.pdf
+          title: "Zerocash — Group 4 Report"
+          github-token: ${{ secrets.PAPERSHARE_TOKEN }}
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
